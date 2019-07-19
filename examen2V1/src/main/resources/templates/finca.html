@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>Finca</h1>
-    <form action="#" th:action="@{/createfinca}" th:object="${finca}" method="post">
+    <form action="#" th:action="@{/finca}" th:object="${finca}" method="post">
     	<p>Nombre: <input type="text" th:field="*{nombre}" /></p>
         <p>Direccion: <input type="text" th:field="*{direccion}" /></p>
         <p>Espacio: <input type="text" th:field="*{espacio}" /></p>
