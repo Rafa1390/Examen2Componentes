@@ -84,7 +84,7 @@ public class FincaController {
 		empleadosBD = repEmp.findAll();
 		
 		for(Empleado bd : empleadosBD) {
-			if(bd.getId_finca() == id) {
+			if(bd.getId_finca() == id && bd.getEstado().equals("Activo")) {
 				listaEmpleados.add(bd);
 			}
 		}
