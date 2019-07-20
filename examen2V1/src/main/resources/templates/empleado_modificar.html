@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Empleado: obtencion de datos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Empleado</h1>
+    <form action="#" th:action="@{/empleado_editar}" th:object="${empleado}" method="POST">
+    	<p>Id: <input type="text" th:field="*{id}" onfocus="this.blur()"/></p>
+    	<p>Id finca: <input type="text" th:field="*{id_finca}" onfocus="this.blur()"/></p>
+        <p>Cedula: <input type="text" th:field="*{cedula}" /></p>
+        <p>Nombre: <input type="text" th:field="*{nombre}" /></p>
+        <p>Apellido: <input type="text" th:field="*{apellido}" /></p>
+        <p>Rol: <input type="text" th:field="*{rol}" onfocus="this.blur()"/></p>
+        <p>Estado: 
+        	<select th:field="*{estado}">
+        		<option th:value="'Nada'" disabled>Seleccione</option>
+				<option th:value="'Activo'" th:text="Activo"></option>
+				<option th:value="'Inactivo'" th:text="Inactivo"></option>
+			</select>
+		</p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>

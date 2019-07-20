@@ -16,6 +16,7 @@
     			<th>Apellido</th>
     			<th>Rol</th>
     			<th>Estado</th>
+    			<th>Actualizar</th>
     		</tr>
     	</thead> 	
     	<tbody>
@@ -27,6 +28,9 @@
     			<td data-th-text="${empleado.apellido}"></td>
     			<td data-th-text="${empleado.rol}"></td>
     			<td data-th-text="${empleado.estado}"></td>
+    			<td>
+    				<a th:href="@{'/empleado_modificar/' + ${empleado.id}}">UPD</a>
+    			</td>
     		</tr>
     	</tbody>
     </table>
