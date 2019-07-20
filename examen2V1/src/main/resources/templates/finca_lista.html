@@ -13,6 +13,8 @@
     			<th>Nombre</th>
     			<th>Direccion</th>
     			<th>Espacio</th>
+    			<th>Actualizar</th>
+    			<th>Registro empleados</th>
     		</tr>
     	</thead> 	
     	<tbody>
@@ -23,6 +25,9 @@
     			<td data-th-text="${finca.espacio}"></td>
     			<td>
     				<a th:href="@{'/finca_actualizar/' + ${finca.id}}">UPD</a>
+    			</td>
+    			<td>
+    				<a th:href="@{'/empleado/' + ${finca.id}}">RegEmp</a>
     			</td>
     		</tr>
     	</tbody>

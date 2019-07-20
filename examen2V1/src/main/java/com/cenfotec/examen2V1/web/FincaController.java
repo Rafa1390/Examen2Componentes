@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cenfotec.examen2V1.domain.Empleado;
 import com.cenfotec.examen2V1.domain.Finca;
 import com.cenfotec.examen2V1.repository.FincaRepository;
 
@@ -57,5 +58,15 @@ public class FincaController {
 	    fincaAct.setEspacio(finca.getEspacio());
 	    repo.save(fincaAct);
 	    return new ModelAndView("redirect:/");
+	}
+	
+	@RequestMapping(value="/empleado/{id}")
+	public String empleado(@PathVariable Long id, ModelMap mp){
+		Empleado empleado = new Empleado();
+		Finca finca = repo.getOne(id);
+		empleado.setId_finca(finca.getId());
+		empleado.setEstado("Activo");
+		mp.addAttribute("empleado", empleado);
+	    return "empleado";
 	}
 }
