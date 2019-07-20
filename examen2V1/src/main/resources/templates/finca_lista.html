@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Finca_lista: lista de fincas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Finca</h1>
+    <table class="table">
+    	<thead>
+    		<tr>
+    			<th>Id</th>
+    			<th>Nombre</th>
+    			<th>Direccion</th>
+    			<th>Espacio</th>
+    		</tr>
+    	</thead> 	
+    	<tbody>
+    		<tr data-th-each="finca : ${fincas}">
+    			<td data-th-text="${finca.id}"></td>
+    			<td data-th-text="${finca.nombre}"></td>
+    			<td data-th-text="${finca.direccion}"></td>
+    			<td data-th-text="${finca.espacio}"></td>
+    		</tr>
+    	</tbody>
+    </table>
+    <br/>
+    <a href="/finca">Registrar finca</a>
+</body>
+</html>
