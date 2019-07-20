@@ -1,5 +1,8 @@
 package com.cenfotec.examen2V1.web;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +20,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cenfotec.examen2V1.domain.Empleado;
 import com.cenfotec.examen2V1.domain.Finca;
+import com.cenfotec.examen2V1.repository.EmpleadoRepository;
 import com.cenfotec.examen2V1.repository.FincaRepository;
 
 @Controller
 public class FincaController {
 	@Autowired
 	FincaRepository repo;
+	@Autowired
+	EmpleadoRepository repEmp;
 	
 	@GetMapping("/finca")
 	public String createFincaView(Model model) {
@@ -69,4 +75,21 @@ public class FincaController {
 		mp.addAttribute("empleado", empleado);
 	    return "empleado";
 	}
+	
+	@RequestMapping(value="/empleado_lista/{id}", method = RequestMethod.GET)
+    public String empleado_lista(@PathVariable Long id,ModelMap mp){
+		List<Empleado> empleadosBD = null;
+		List<Empleado> listaEmpleados = new ArrayList<Empleado>();
+		
+		empleadosBD = repEmp.findAll();
+		
+		for(Empleado bd : empleadosBD) {
+			if(bd.getId_finca() == id) {
+				listaEmpleados.add(bd);
+			}
+		}
+		
+        mp.put("empleados", listaEmpleados);
+        return "empleado_lista";
+    }
 }

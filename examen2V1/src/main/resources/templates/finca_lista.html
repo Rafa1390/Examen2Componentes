@@ -15,6 +15,7 @@
     			<th>Espacio</th>
     			<th>Actualizar</th>
     			<th>Registro empleados</th>
+    			<th>Lista empleados</th>
     		</tr>
     	</thead> 	
     	<tbody>
@@ -28,6 +29,9 @@
     			</td>
     			<td>
     				<a th:href="@{'/empleado/' + ${finca.id}}">RegEmp</a>
+    			</td>
+    			<td>
+    				<a th:href="@{'/empleado_lista/' + ${finca.id}}">LstEmp</a>
     			</td>
     		</tr>
     	</tbody>
