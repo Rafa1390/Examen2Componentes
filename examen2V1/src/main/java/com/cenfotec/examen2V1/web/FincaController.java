@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,5 +39,23 @@ public class FincaController {
 	public ModelAndView createFinca(@Valid Finca finca, BindingResult result) {
 		repo.save(finca);
 		return new ModelAndView("redirect:/");
+	}
+	
+	@RequestMapping(value="/finca_actualizar/{id}")
+	public String finca_actualizar(@PathVariable Long id, ModelMap mp){
+		Finca finca = repo.getOne(id);
+		mp.addAttribute("finca", finca);
+	    return "finca_actualizar";
+	}
+	
+	@RequestMapping(value="/finca_editar", method=RequestMethod.POST)
+	public ModelAndView finca_editar(@ModelAttribute("finca") Finca finca){
+	    Finca fincaAct = repo.getOne(finca.getId());
+	    fincaAct.setId(finca.getId());
+	    fincaAct.setNombre(finca.getNombre());
+	    fincaAct.setDireccion(finca.getDireccion());
+	    fincaAct.setEspacio(finca.getEspacio());
+	    repo.save(fincaAct);
+	    return new ModelAndView("redirect:/");
 	}
 }

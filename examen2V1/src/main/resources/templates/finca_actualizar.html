@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Finca: actualizacion de datos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Actualizar Finca</h1>
+    <form action="#" th:action="@{/finca_editar}" th:object="${finca}" method="POST">
+    	<p>Id: <input type="text" th:field="*{id}" /></p>
+    	<p>Nombre: <input type="text" th:field="*{nombre}" /></p>
+        <p>Direccion: <input type="text" th:field="*{direccion}" /></p>
+        <p>Espacio: <input type="text" th:field="*{espacio}" /></p>
+        <p><input type="submit" value="Modificar" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
