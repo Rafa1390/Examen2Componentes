@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Produccion: registro de produccion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Produccion</h1>
+    <form action="#" th:action="@{/produccion_registro}" th:object="${produccion}" method="post">
+    	<p>Id finca: <input type="text" th:field="*{id_finca}" onfocus="this.blur()"/></p>
+        <p>Cantidad de huevos: <input type="text" th:field="*{cant_huevos}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>

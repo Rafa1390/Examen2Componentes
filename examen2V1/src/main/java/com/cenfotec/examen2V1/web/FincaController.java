@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cenfotec.examen2V1.domain.Empleado;
 import com.cenfotec.examen2V1.domain.Finca;
+import com.cenfotec.examen2V1.domain.Produccion;
 import com.cenfotec.examen2V1.repository.EmpleadoRepository;
 import com.cenfotec.examen2V1.repository.FincaRepository;
 
@@ -92,4 +93,13 @@ public class FincaController {
         mp.put("empleados", listaEmpleados);
         return "empleado_lista";
     }
+	
+	@RequestMapping(value="/produccion/{id}")
+	public String produccion(@PathVariable Long id, ModelMap mp){
+		Produccion prod = new Produccion();
+		Finca finca = repo.getOne(id);
+		prod.setId_finca(finca.getId());
+		mp.addAttribute("produccion", prod);
+	    return "produccion";
+	}
 }
