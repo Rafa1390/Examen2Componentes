@@ -100,7 +100,7 @@ public class FincaController {
 	@RequestMapping(value="/produccion/{id}")
 	public String produccion(@PathVariable Long id, ModelMap mp){
 		Produccion prod = new Produccion();
-		Finca finca = repo.getOne(id); //Revisar, creo que no es necesario
+		Finca finca = repo.getOne(id);
 		prod.setId_finca(finca.getId());
 		mp.addAttribute("produccion", prod);
 	    return "produccion";
