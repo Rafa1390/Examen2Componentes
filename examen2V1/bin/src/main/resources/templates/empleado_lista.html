@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Empleado_lista: lista de empleados</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Empleado</h1>
+    <table class="table">
+    	<thead>
+    		<tr>
+    			<th>Id</th>
+    			<th>Finca</th>
+    			<th>Cedula</th>
+    			<th>Nombre</th>
+    			<th>Apellido</th>
+    			<th>Rol</th>
+    			<th>Estado</th>
+    			<th>Actualizar</th>
+    		</tr>
+    	</thead> 	
+    	<tbody>
+    		<tr data-th-each="empleado : ${empleados}">
+    			<td data-th-text="${empleado.id}"></td>
+    			<td data-th-text="${empleado.id_finca}"></td>
+    			<td data-th-text="${empleado.cedula}"></td>
+    			<td data-th-text="${empleado.nombre}"></td>
+    			<td data-th-text="${empleado.apellido}"></td>
+    			<td data-th-text="${empleado.rol}"></td>
+    			<td data-th-text="${empleado.estado}"></td>
+    			<td>
+    				<a th:href="@{'/empleado_modificar/' + ${empleado.id}}">UPD</a>
+    			</td>
+    		</tr>
+    	</tbody>
+    </table>
+    <br/>
+    <a href="/">Volver</a>
+</body>
+</html>

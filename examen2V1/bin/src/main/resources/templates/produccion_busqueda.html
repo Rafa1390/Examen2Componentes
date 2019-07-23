@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Busqueda de produccion por fincas en el mes actual</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Busqueda produccion mes actual</h1>
+    <form action="#" th:action="@{/produccion_registro_busqueda}" th:object="${produccion}" method="post">
+    	<p>Digite el id de la finca si desea ver la produccion de una finca en particular</p>
+    	<p>De lo contrario dijite 0 para obtener la produccion de todas las fincas</p>
+    	<p>Id finca: <input type="text" th:field="*{id_finca}" /></p>
+        <p><input type="submit" value="Submit"/> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
