@@ -23,7 +23,6 @@ import com.cenfotec.examen2V1.domain.Finca;
 import com.cenfotec.examen2V1.domain.Produccion;
 import com.cenfotec.examen2V1.repository.EmpleadoRepository;
 import com.cenfotec.examen2V1.repository.FincaRepository;
-import com.cenfotec.examen2V1.repository.ProduccionRepository;
 
 @Controller
 public class FincaController {
@@ -31,8 +30,6 @@ public class FincaController {
 	FincaRepository repo;
 	@Autowired
 	EmpleadoRepository repEmp;
-	@Autowired
-	ProduccionRepository repPro;
 	
 	@GetMapping("/finca")
 	public String createFincaView(Model model) {
@@ -105,22 +102,4 @@ public class FincaController {
 		mp.addAttribute("produccion", prod);
 	    return "produccion";
 	}
-	
-	@RequestMapping(value="/produccion_lista/{id}", method = RequestMethod.GET)
-    public String produccion_lista(@PathVariable Long id,ModelMap mp){
-		List<Produccion> produccionBD = null;
-		List<Produccion> listaProduccion = new ArrayList<Produccion>();
-		//listaProduccion = repPro.findById_finca(id);
-		
-		produccionBD = repPro.findAll();
-		
-		for(Produccion bd : produccionBD) {
-			if(bd.getId_finca() == id) {
-				listaProduccion.add(bd);
-			}
-		}
-		
-        mp.put("producciones", listaProduccion);
-        return "produccion_lista";
-    }
 }
