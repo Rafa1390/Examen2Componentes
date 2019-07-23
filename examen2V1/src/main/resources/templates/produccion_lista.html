@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>produccion_lista: lista de producción por finca</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Produccion</h1>
+    <table class="table">
+    	<thead>
+    		<tr>
+    			<th>Id</th>
+    			<th>Id finca</th>
+    			<th>Cantidad</th>
+    			<th>Fecha</th>
+    		</tr>
+    	</thead> 	
+    	<tbody>
+    		<tr data-th-each="produccion : ${producciones}">
+    			<td data-th-text="${produccion.id}"></td>
+    			<td data-th-text="${produccion.id_finca}"></td>
+    			<td data-th-text="${produccion.cant_huevos}"></td>
+    			<td data-th-text="${produccion.fecha}"></td>
+    		</tr>
+    	</tbody>
+    </table>
+    <br/>
+    <a href="/">Volver</a>
+</body>
+</html>

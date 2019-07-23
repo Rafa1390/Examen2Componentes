@@ -16,6 +16,8 @@
     			<th>Actualizar</th>
     			<th>Registro empleados</th>
     			<th>Lista empleados</th>
+    			<th>Produccion</th>
+    			<th>Lista produccion</th>
     		</tr>
     	</thead> 	
     	<tbody>
@@ -35,6 +37,9 @@
     			</td>
     			<td>
     				<a th:href="@{'/produccion/' + ${finca.id}}">RegProd</a>
+    			</td>
+    			<td>
+    				<a th:href="@{'/produccion_lista/' + ${finca.id}}">RegProd</a>
     			</td>
     		</tr>
     	</tbody>
